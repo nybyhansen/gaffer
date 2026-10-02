@@ -1,0 +1,25 @@
+version: "3"
+
+tasks:
+  default:
+    desc: "List all available tasks"
+    cmds:
+      - task --list-all
+
+  install:
+    desc: "Sync the venv and install git hooks"
+    cmds:
+      - uv sync
+      - prek install
+
+  lint:
+    desc: "Run all linters and type checkers"
+    cmds:
+      - prek run --all-files
+      - uv run ty check
+
+  format:
+    desc: "Auto-format and auto-fix"
+    cmds:
+      - uv run ruff format .
+      - uv run ruff check --fix .
