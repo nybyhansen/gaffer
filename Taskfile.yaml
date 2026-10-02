@@ -10,12 +10,12 @@ tasks:
     desc: "Sync the venv and install git hooks"
     cmds:
       - uv sync
-      - prek install
+      - uv run prek install
 
   lint:
     desc: "Run all linters and type checkers"
     cmds:
-      - prek run --all-files
+      - uv run prek run --all-files
       - uv run ty check
 
   format:
